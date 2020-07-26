@@ -4,13 +4,28 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node dist/App.js",
+    "dev": "nodemon src/App.ts",
+    "build": "tsc -p ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/noarif/goon-bot.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "dependencies": {
+  "bugs": {
+    "url": "https://github.com/noarif/goon-bot/issues"
+  },
+  "homepage": "https://github.com/noarif/goon-bot#readme",
+  "devDependencies": {
     "@types/node": "^14.0.26",
-    "discord.js": "github:discordjs/discord.js"
+    "nodemon": "^2.0.4",
+    "ts-node": "^8.10.2",
+    "typescript": "^3.9.7"
+  },
+  "dependencies": {
+    "discord.js": "^12.2.0"
   }
 }
