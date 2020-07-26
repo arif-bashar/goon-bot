@@ -30,6 +30,8 @@ function commands(message: Message): void {
 
   tokenizedMsg = tokenizer.tokenize(chatMsg);
   
+  /* Iterates through badWords object and if tokenizedMsg array contains an element
+  that matches key in badWords, send response */
   for (const [key] of Object.entries(badWords)) {
     if (tokenizedMsg.includes(key)) {
       message.channel.send(badResponse);
