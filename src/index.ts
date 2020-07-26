@@ -8,6 +8,6 @@ client.once("ready", () => {
   console.log("Ready!");
 });
 
-client.on("message", (message) => commands(message));
+client.on("message", (message): void => commands(message));
 
 client.login(token);
