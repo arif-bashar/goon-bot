@@ -12,21 +12,22 @@ function commands(message: Message) {
     return;
 
   // Returns a random number between min and max inclusive
-  const getRandomInt = (min: number, max: number) => {
-    return Math.floor(Math.random() * (max - min + 1)) + min;
+  const getRandomInt = (min: number, max: number): number => {
+    return Math.floor(Math.random() * (max - min)) + min;
   }
 
-  const tokenizer = new WordTokenizer();
-  let tokenizedMsg: string[];
-  let badword: string;
-  let chatMsg: string = message.content.toLowerCase();
+  const tokenizer = new WordTokenizer(); // Method that splits a string into an array of its words
+  const badResponseSize: number = Object.keys(badWordResponses).length / 2; // Returns the number of items in badWordResponses object
+  let tokenizedMsg: string[]; // Array to hold the tokenized chat message
+  let chatMsg: string = message.content.toLowerCase(); // Turns the message into lower case
+  let response: number = getRandomInt(0, badResponseSize);
 
   tokenizedMsg = tokenizer.tokenize(chatMsg);
   
   for (const [key] of Object.entries(badWords)) {
     if (tokenizedMsg.includes(key)) {
-      badword = key;
-      message.channel.send("blah blah blah stop cussing u bitch");
+      console.log(response);
+      message.channel.send(badWordResponses[response]);
       break;
     }
   }
