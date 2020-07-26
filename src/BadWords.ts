@@ -1,4 +1,4 @@
-module.exports = {
+const badWords = {
   "4r5e": 1,
   "5h1t": 1,
   "5hit": 1,
@@ -450,3 +450,5 @@ module.exports = {
   xrated: 1,
   xxx: 1,
 };
+
+export default badWords;
