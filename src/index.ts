@@ -1,12 +1,11 @@
-import * as Discord from "discord.js";
+import Discord, { Client } from "discord.js";
 import { token } from "./Config";
 
 const botID = "708855119508406373";
-const client = new Discord.Client();
+const client: Client = new Discord.Client();
 
-client.on("ready", () => {
-  if (client.user != null)
-    console.log("Logged into user " + client.user.username);
+client.once("ready", () => {
+  console.log("Ready!");
 });
 
 client.on("message", (message) => {
