@@ -7,3 +7,11 @@ Hello! This is a Discord bot named Goon whose sole purpose is to detect if users
 
 <img src="/preview.png" width="384" height="130">
 
+# What more would I like to do with this?
+- Based on a trigger, I want Goon to be able to evaluate the most recent messages sent by a user and pass a conclusion on what the user's emotion is. If they are sad, then I'd like for Goon to send a sweet message. 
+
+# Work in progress ...
+- Exported thousands of chats since the creation of the server
+- Proccessed the chat logs so that they are organized by who sent them
+- Currently going with the supervised learning approach, employing a Naive Bayes classifier ... which means I need to split these chat logs into different chunks based on time logs and label the chunks as sad, happy, angry, etc.
+
