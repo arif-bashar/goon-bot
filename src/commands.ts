@@ -1,6 +1,8 @@
 import Discord, { Message } from "discord.js"
 import Natural, { WordTokenizer } from "natural";
-import { botID } from "./Config";
+import axios from "axios";
+
+import { botID, iexToken } from "./Config";
 import badWords from "./badWords";
 import { badWordResponses } from './responses';
 
@@ -38,6 +40,22 @@ function commands(message: Message): void {
       break;
     }
   }
+
+  if (chatMsg.startsWith("!stonk")) {
+    const getStock = async () => {
+      try {
+        const resp = await axios.get(`https://cloud.iexapis.com/stable/tops?token=${iexToken}&symbols=${tokenizedMsg[1]}`);
+        
+        message.channel.send(`Last sale price of ${tokenizedMsg[1].toUpperCase()}: ${resp.data[0].lastSalePrice} https://iextrading.com/apps/stocks/${tokenizedMsg[1]}`);
+      } catch (err) {
+        // console.log(err)
+      }
+    }
+
+    getStock();
+  }
+
+  
 }
 
 export default commands;

@@ -27,6 +27,7 @@
   },
   "dependencies": {
     "@types/natural": "^0.6.3",
+    "axios": "^0.21.1",
     "discord.js": "^12.2.0",
     "natural": "^2.1.5"
   }
